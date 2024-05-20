@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+            xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+             xmlns:viewModel="clr-namespace:SfDataGridSample.ViewModel"
+             x:Class="SfDataGridSample.MainPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:EmployeeViewModel x:Name="viewModel"/>
+    </ContentPage.BindingContext>
+
+
+    <syncfusion:SfDataGrid x:Name="dataGrid" Margin="20"
+                           AutoGenerateColumnsMode="None"                           
+                           AllowResizingColumns="True"
+                           ColumnResizing="dataGrid_ColumnResizing"
+                            GridLinesVisibility="Both"
+                            HeaderGridLinesVisibility="Both"
+                            x:DataType="viewModel:EmployeeViewModel" 
+                           QueryRowHeight="dataGrid_QueryRowHeight"
+                           PropertyChanged="dataGrid_PropertyChanged"
+                            ItemsSource="{Binding EmployeeInformation}">
+        <syncfusion:SfDataGrid.Columns>
+            <syncfusion:DataGridTextColumn HeaderText="Name" MappingName="Name"  />
+            <syncfusion:DataGridTextColumn HeaderText="Employee ID" MappingName="EmployeeID"  />
+            <syncfusion:DataGridTextColumn HeaderText="Telephone" MappingName="Telephone"/>
+            <syncfusion:DataGridTextColumn HeaderText="About" MappingName="About"/>
+        </syncfusion:SfDataGrid.Columns>
+    </syncfusion:SfDataGrid>
+
+</ContentPage>
